@@ -1,8 +1,37 @@
-.body {
-  background-color: #5c0a7c;
+.headerImg {
+  width: 150px;
+  float: left;
+}
+.adminLink {
+  float: right;
   color: #e5af30;
 }
-
+.adminLink:link {
+  color: #e5af30;
+}
+.adminLink:visited {
+  color: #e5af30;
+}
+.adminLink:hover {
+  color: white;
+}
+.adminLink:active {
+  color: white;
+}
+.infographicBlock {
+  display: block;  
+  width: 100%;
+}
+.flexContainer {
+  display: flex;
+  flex-flow: row;
+}
+.flexside {
+  flex: 1 auto;
+}
+.flexmiddle {
+  flex: 3 0px;
+}
 .App {
   text-align: center;
 }

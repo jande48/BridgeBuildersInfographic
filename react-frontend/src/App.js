@@ -1,15 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
 import bridgeBuildersLogo from './bridgeBuildersLetterHeadLogo.png'
+import Home from './Components/Home'
+import Admin from './Components/Admin'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      
+    <Router>
       <div>
-        <img src={bridgeBuildersLogo} alt="Bridge Builders" />
+        
+        <div className="infographicBlock">
+          <Switch>
+            <Route path="/admin">
+              <Admin />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </div>
+        
       </div>
-    </div>
+    </Router>
   );
 }
 
