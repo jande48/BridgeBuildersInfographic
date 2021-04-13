@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/react/css/main.b7d2b355.chunk.css",
+    "main.js": "/static/react/js/main.527ddd11.chunk.js",
+    "main.js.map": "/static/react/js/main.527ddd11.chunk.js.map",
+    "runtime-main.js": "/static/react/js/runtime-main.d1af1144.js",
+    "runtime-main.js.map": "/static/react/js/runtime-main.d1af1144.js.map",
+    "js/2.14180978.chunk.js": "/static/react/js/2.14180978.chunk.js",
+    "js/2.14180978.chunk.js.map": "/static/react/js/2.14180978.chunk.js.map",
+    "js/3.c0585354.chunk.js": "/static/react/js/3.c0585354.chunk.js",
+    "js/3.c0585354.chunk.js.map": "/static/react/js/3.c0585354.chunk.js.map",
+    "../../templates/index.html": "/static/react/../../templates/index.html",
+    "css/main.b7d2b355.chunk.css.map": "/static/react/css/main.b7d2b355.chunk.css.map",
+    "js/2.14180978.chunk.js.LICENSE.txt": "/static/react/js/2.14180978.chunk.js.LICENSE.txt",
+    "media/bridgeBuildersLetterHeadLogo.12a0c1c0.png": "/static/react/media/bridgeBuildersLetterHeadLogo.12a0c1c0.png",
+    "media/logo.6ce24c58.svg": "/static/react/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "js/runtime-main.d1af1144.js",
+    "js/2.14180978.chunk.js",
+    "css/main.b7d2b355.chunk.css",
+    "js/main.527ddd11.chunk.js"
+  ]
+}
