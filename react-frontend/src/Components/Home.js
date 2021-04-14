@@ -12,9 +12,6 @@ import {
   } from "react-router-dom";
 function Home() {
 
-    let { id } = useParams();
-    console.log(id)
-
     return (
 
     <div>
@@ -23,7 +20,7 @@ function Home() {
           <a href="https://www.bridgebuildersla.org/"><img src={bridgeBuildersLogo} alt="Bridge Builders" className="headerImg"/></a>
           </div>
           <div className="flexmiddle"></div>
-          <div className="flexside">
+          <div className="flexsideHeader">
             <Link to="/admin"><div className="adminLink"><h2>Admin</h2></div></Link>
           </div>
         </div>
