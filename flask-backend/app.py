@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
-import json, os
+import json, os, pickle
+from pickleFuncs import postPickle, getPickle
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -18,6 +20,16 @@ def auth():
     
     return json.dumps('1')
 
+@app.route('/getPostPickle', methods = ['GET', 'POST'])
+def pickle():
+    if request.method == 'POST':
+        JSON_sent = request.get_json()
+        #print(JSON_sent)
+        postPickle(request.get_json())
+        return json.dumps(request.get_json())
+    if request.method == 'GET':
+        pickle = getPickle()
+        return json.dumps(pickle)
 
 
 if __name__ == '__main__':

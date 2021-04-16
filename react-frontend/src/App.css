@@ -31,7 +31,11 @@ input {
   margin: 200 200;
   padding: 50 50;
 }
-
+.fullWidth {
+  width: 98% !important;
+  margin: 10px 10px !important;
+  padding: 5 !important;
+}
 .flexContainer {
   display: flex;
   flex-flow: row;

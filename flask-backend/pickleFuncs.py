@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 
 def initPickle():
-    infoPickle = {"students":{},'info':{},'stats':{}}
+    infoPickle = {"students":{"numOfStu":80,"gradRate6yr":89,"gradRate4yr":65,"firstGenCollege":30,'hoursMentoring':40},'info':{},'stats':{}}
     pickling_on = open("infographicPickle.pickle","wb")
     pickle.dump(infoPickle, pickling_on)
     pickling_on.close()
@@ -20,6 +20,10 @@ def getPickle():
     pickle_off.close()
     return newPickle
 
+def postPickle(newJSON):
+    pickling_on = open("infographicPickle.pickle","wb")
+    pickle.dump(newJSON, pickling_on)
+    pickling_on.close()
 # def decrementTodaysTreat():
 #     pickle_off = open("treatPickle.pickle", 'rb')
 #     newTreatPickle = pickle.load(pickle_off)
