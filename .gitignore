@@ -1,3 +1,5 @@
 venv/
 react-frontend/node_modules/
 node_modules/
+.vscode
+__pycache__
