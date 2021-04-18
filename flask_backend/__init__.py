@@ -33,6 +33,17 @@ def auth():
 
 @app.route('/getPostPickle', methods = ['GET', 'POST'])
 def pickle():
+    def postPickle(newJSON):
+        pickling_on = open("infographicPickle.pickle","wb")
+        pickle.dump(newJSON, pickling_on)
+        pickling_on.close()
+
+    def getPickle():
+        pickle_off = open("infographicPickle.pickle", 'rb')
+        newPickle = pickle.load(pickle_off)
+        pickle_off.close()
+        return newPickle
+        
     if request.method == 'POST':
         JSON_sent = request.get_json()
         #print(JSON_sent)
