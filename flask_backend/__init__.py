@@ -1,8 +1,19 @@
 from flask import Flask, render_template, request
 import json, os, pickle
-from pickleFuncs import postPickle, getPickle
+#from pickleFuncs import postPickle, getPickle
 
 app = Flask(__name__)
+
+def getPickle():
+    pickle_off = open("infographicPickle.pickle", 'rb')
+    newPickle = pickle.load(pickle_off)
+    pickle_off.close()
+    return newPickle
+
+def postPickle(newJSON):
+    pickling_on = open("infographicPickle.pickle","wb")
+    pickle.dump(newJSON, pickling_on)
+    pickling_on.close()
 
 @app.route('/')
 def main_infographic():
