@@ -1,8 +1,22 @@
 from flask import Flask, render_template, request
 import json, os, pickle
 from pickleFuncs import postPickle, getPickle
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+environment = 'prod'
+
+if environment == 'dev':
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+else: 
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+db = SQLAlchemy(app)
+
+class JSONmodelObject(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    JSONinDB =  db.Column(db.String(1000))
+
 
 @app.route('/')
 def main_infographic():
@@ -24,12 +38,14 @@ def auth():
 def pickle():
     if request.method == 'POST':
         JSON_sent = request.get_json()
-        #print(JSON_sent)
-        postPickle(request.get_json())
+        dbJSONresult = JSONmodelObject.query.first()
+        dbJSONresult.JSONinDB = json.dumps(JSON_sent)
+        db.session.add(dbJSONresult)
+        db.session.commit()
         return json.dumps(request.get_json())
     if request.method == 'GET':
-        pickle = getPickle()
-        return json.dumps(pickle)
+        dbJSONresult = JSONmodelObject.query.first()
+        return dbJSONresult.JSONinDB
 
 
 if __name__ == '__main__':
