@@ -10,7 +10,7 @@ environment = 'prod'
 if environment == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 else: 
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 db = SQLAlchemy(app)
 
 class JSONmodelObject(db.Model):
