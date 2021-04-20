@@ -17,8 +17,13 @@ function Home() {
       const axios = require('axios').default;
       axios.get('/getPostPickle')
         .then(function (response) {
-          console.log(response.data)
-          setPickle(JSON.parse(response.data))
+          console.log(typeof(response.data))
+          if (typeof(response.data) == 'object'){
+            setPickle(response.data)
+          }else{
+            setPickle(JSON.parse(response.data))
+          }
+          
           bubbleChart(bubbleChartNode,response.data)
         })
       

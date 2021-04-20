@@ -1,9 +1,16 @@
 import React, {useEffect, useState}  from "react";
 import '../App.css';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 function AddData() {
     const axios = require('axios').default;
     const [pickle, setPickle] = useState({})
+    const [redirectHome, setRedirectHome] = useState(false)
+
     useEffect(() => {
         axios.get('/getPostPickle')
           .then(function (response) {
@@ -16,7 +23,7 @@ function AddData() {
 
         axios.post('/getPostPickle', pickle)
           .then(function (response) {
-            console.log(response.data)
+            setRedirectHome(true)
           })
     }
     const setNumberOfStudentsHandler = (e) => {
@@ -44,9 +51,16 @@ function AddData() {
       newPickle['students']['hoursMentoring'] = parseInt(e.target.value)
       setPickle(newPickle)
   }
-    console.log(pickle)
+    console.log(redirectHome)
     return (
+      
+    
     <div>
+      {redirectHome ? 
+        <div>
+          <Redirect to="/home" />
+        </div>
+      :
         <div className="infographicBlock">
           <div className="flexContainer">
             <div className="flexside"></div>
@@ -90,7 +104,9 @@ function AddData() {
             <div className="flexside"></div>
           </div>
         </div>
+      }
     </div>
+  
     )
 
 }
