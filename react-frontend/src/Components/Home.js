@@ -39,7 +39,7 @@ function Home() {
         </div>
         <div className="fullWidth">
           <React.Fragment>
-            <h2>Current Cohort</h2>
+            <h2>Current Cohort Pickle</h2>
             <svg id="bubbleChart" className="fullWidth" ref={bubbleChartNode}/>
           </React.Fragment>
           
