@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import json, os, pickle
-from pickleFuncs import postPickle, getPickle
+#from pickleFuncs import postPickle, getPickle
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
