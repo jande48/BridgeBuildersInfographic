@@ -1,20 +1,22 @@
 from flask import Flask, render_template, request
 import json, os
-import pickle
-#from pickleFuncs import postPickle, getPickle
+from pickleFuncs import postPickle, getPickle
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-def getPickle():
-    pickle_off = open("infographicPickle.pickle", 'rb')
-    newPickle = pickle.load(pickle_off)
-    pickle_off.close()
-    return newPickle
+environment = 'prod'
 
-def postPickle(newJSON):
-    pickling_on = open("infographicPickle.pickle","wb")
-    pickle.dump(newJSON, pickling_on)
-    pickling_on.close()
+if environment == 'dev':
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+else: 
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+db = SQLAlchemy(app)
+
+class JSONmodelObject(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    JSONinDB =  db.Column(db.String(1000))
+
 
 @app.route('/')
 def main_infographic():
@@ -33,16 +35,18 @@ def auth():
     return json.dumps('1')
 
 @app.route('/getPostPickle', methods = ['GET', 'POST'])
-def getPostPickle():
+def pickle():
     if request.method == 'POST':
         JSON_sent = request.get_json()
-        #print(JSON_sent)
-        postPickle(request.get_json())
+        dbJSONresult = JSONmodelObject.query.first()
+        dbJSONresult.JSONinDB = json.dumps(JSON_sent)
+        db.session.add(dbJSONresult)
+        db.session.commit()
         return json.dumps(request.get_json())
     if request.method == 'GET':
-        pickle = getPickle()
-        return json.dumps(pickle)
+        dbJSONresult = JSONmodelObject.query.first()
+        return dbJSONresult.JSONinDB
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
