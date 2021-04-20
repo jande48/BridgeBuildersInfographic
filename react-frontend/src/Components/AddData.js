@@ -67,32 +67,37 @@ function AddData() {
             <div className="flexpassword">
               <form onSubmit={handlePickleSubmit}>
                 <div class="form-group row">
-                  <label for="numberOfStudents">Number of Students:</label>
+                  
                   <div class="col-sm-10">
+                  <label for="numberOfStudents">Number of Students:</label>
                   <input class="form-control" id="numberOfStudents" type="text" onChange={setNumberOfStudentsHandler} name="numberOfStudents"/>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="gradRate6yr">Six Year Grad Rate:</label>
+                  
                   <div class="col-sm-10">
+                  <label for="gradRate6yr">Six Year Grad Rate:</label>
                   <input class="form-control" id="gradRate6yr" type="text" onChange={setGradRate6yrHandler} name="gradRate6yr"/>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="gradRate4yr">Four Year Grad Rate:</label>
+                  
                   <div class="col-sm-10">
+                  <label for="gradRate4yr">Four Year Grad Rate:</label>
                   <input class="form-control" id="gradRate4yr" type="text" onChange={setGradRate4yrHandler} name="gradRate4yr"/>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="firstGenCollege">First Gen College %:</label>
+                  
                   <div class="col-sm-10">
+                  <label for="firstGenCollege">First Gen College %:</label>
                   <input class="form-control" id="firstGenCollege" type="text" onChange={setFirstGenCollegeHandler} name="firstGenCollege"/>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="hoursMentoring">Hours Mentoring:</label>
+                  
                   <div class="col-sm-10">
+                  <label for="hoursMentoring">Hours Mentoring:</label>
                   <input class="form-control" id="hoursMentoring" type="text" onChange={setHoursMentoringHandler} name="hoursMentoring"/>
                   </div>
                 </div>
