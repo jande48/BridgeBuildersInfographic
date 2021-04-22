@@ -17,7 +17,7 @@ function Home() {
       const axios = require('axios').default;
       axios.get('/getPostPickle')
         .then(function (response) {
-          console.log(typeof(response.data))
+          
           if (typeof(response.data) == 'object'){
             setPickle(response.data)
           }else{
@@ -45,7 +45,6 @@ function Home() {
         </div>
         <div className="fullWidth">
           <React.Fragment>
-            <h2>Current Cohort Pickle</h2>
             <svg id="bubbleChart" className="fullWidth" ref={bubbleChartNode}/>
           </React.Fragment>
           

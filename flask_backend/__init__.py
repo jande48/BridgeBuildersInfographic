@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import json, os
+import json, os, pickle
 #from pickleFuncs import postPickle, getPickle
 from flask_sqlalchemy import SQLAlchemy
 
