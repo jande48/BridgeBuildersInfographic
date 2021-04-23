@@ -21,11 +21,11 @@ function bubbleChart(refNode, inputData) {
   
   const studentData = require('./students.json');
   const data = []
-  data.push({"name":"Hours Mentoring / Coaching","value":inputData['students']['hoursMentoring']})
-  data.push({"name":"Grad Rate 6yr (%)","value":inputData['students']['gradRate6yr']})
-  data.push({"name":"Grad Rate 4yr (%)","value":inputData['students']['gradRate4yr']})
-  data.push({"name":"First Gen College (%)","value":inputData['students']['firstGenCollege']})
-  data.push({"name":"Num of Students","value":inputData['students']['numOfStu']})
+  //data.push({"name":"Hours Mentoring / Coaching","value":inputData['students']['hoursMentoring']})
+  //data.push({"name":"Grad Rate 6yr (%)","value":inputData['students']['gradRate6yr']})
+  //data.push({"name":"Grad Rate 4yr (%)","value":inputData['students']['gradRate4yr']})
+  //data.push({"name":"First Gen College (%)","value":inputData['students']['firstGenCollege']})
+  //data.push({"name":"Num of Students","value":inputData['students']['numOfStu']})
   data.push(studentData)
   let svg = d3.select(refNode.current);
   const width = 932;
